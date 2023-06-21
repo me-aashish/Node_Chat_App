@@ -20,8 +20,9 @@ const setUpServer = () => {
             socket.emit('from_server');
         },3000)
 
-        socket.on('from_client',()=>{
-            console.log('received from client');
+        socket.on('msg_from_client',(data)=>{
+            console.log(data);
+            io.emit('msg_rcvd',data)
         })
     });
 
